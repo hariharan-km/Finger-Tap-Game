@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(home: MainPage()));
+  runApp(const MaterialApp(home: MainPage()));
 }
 
 class MainPage extends StatelessWidget {
+  const MainPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,14 +19,14 @@ class MainPage extends StatelessWidget {
           child: Center(
               child: MaterialButton(
             color: Colors.white,
-            shape: CircleBorder(),
+            shape: const CircleBorder(),
             height: 150,
             minWidth: 150,
             onPressed: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => GamePage()));
+                  context, MaterialPageRoute(builder: (context) => const GamePage()));
             },
-            child: Text("START"),
+            child: const Text("START"),
           )),
         ),
         Container(
@@ -34,14 +36,14 @@ class MainPage extends StatelessWidget {
             child: Center(
               child: MaterialButton(
                 color: Colors.white,
-                shape: CircleBorder(),
+                shape: const CircleBorder(),
                 height: 150,
                 minWidth: 150,
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => GamePage()));
+                      MaterialPageRoute(builder: (context) => const GamePage()));
                 },
-                child: Text("START"),
+                child: const Text("START"),
               ),
             )),
       ],
@@ -50,6 +52,8 @@ class MainPage extends StatelessWidget {
 }
 
 class GamePage extends StatefulWidget {
+  const GamePage({super.key});
+
   @override
   State<GamePage> createState() => _GamePageState();
 }
@@ -104,19 +108,19 @@ class _GamePageState extends State<GamePage> {
               height: blueCardHeight,
               color: Colors.blueAccent,
               alignment: Alignment.topLeft,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: Text(
-                      "Player B",
+                      "Player A",
                       style:
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Text(
                     playerBScore.toString(),
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -150,19 +154,19 @@ class _GamePageState extends State<GamePage> {
               height: redCardHeight,
               color: Colors.redAccent,
               alignment: Alignment.bottomLeft,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: Text(
-                      "Player A",
+                      "Player B",
                       style:
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Text(
                     playerAScore.toString(),
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -178,7 +182,7 @@ class ResultPage extends StatelessWidget {
   int score = 0;
   String player = "";
 
-  ResultPage(this.score, this.player);
+  ResultPage(this.score, this.player, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -190,11 +194,11 @@ class ResultPage extends StatelessWidget {
           children: [
             Text(
               score.toString(),
-              style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
             ),
             Text(
-              player == "a" ? "PLAYER A WON" : "PLAYER B WON",
-              style: TextStyle(fontSize: 35),
+              player == "a" ? "PLAYER B WON" : "PLAYER A WON",
+              style: const TextStyle(fontSize: 35),
             ),
             MaterialButton(
               onPressed: () {
@@ -202,7 +206,7 @@ class ResultPage extends StatelessWidget {
                 Navigator.pop(context);
               },
               color: Colors.white,
-              child: Text("Restart Game"),
+              child: const Text("Restart Game"),
             )
           ],
         ),
